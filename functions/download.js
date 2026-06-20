@@ -1,7 +1,7 @@
-const DEFAULT_OBJECT_KEY = "AppTidy-0.1.1.dmg";
-const DEFAULT_VERSION = "0.1.1";
+const DEFAULT_OBJECT_KEY = "AppTidy-0.1.2.dmg";
+const DEFAULT_VERSION = "0.1.2";
 const DEFAULT_FILENAME = `AppTidy-${DEFAULT_VERSION}.dmg`;
-const DEFAULT_SHA256 = "2d6b9dd8e3dffe274fc113fb90ff67e66b4ebe475ced1ef3284f0cc242e6bf8e";
+const DEFAULT_SHA256 = "68959d3532266389ea69c84d6ca174334f1268805c81bb2553cd78654778687e";
 const DMG_CONTENT_TYPE = "application/x-apple-diskimage";
 
 function downloadBucket(env) {
