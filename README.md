@@ -25,7 +25,7 @@ The footer credits both the app development and website design to `bistudio.app`
 
 ## Downloads
 
-Download buttons point to `/download?v=0.1.0` so browsers do not reuse a stale
+Download buttons point to `/download?v=0.1.1` so browsers do not reuse a stale
 cached `latest` response. In Cloudflare Pages / Workers & Pages,
 `functions/download.js` streams that route from a private R2 bucket.
 
@@ -36,20 +36,20 @@ APPTIDY_DOWNLOADS
 ```
 
 By default, `/download` reads `AppTidy-latest.dmg` from R2 but sends users a
-versioned filename such as `AppTidy-0.1.0.dmg`. You can override the object key
+versioned filename such as `AppTidy-0.1.1.dmg`. You can override the object key
 with a production environment variable:
 
 ```text
-APPTIDY_DOWNLOAD_KEY=releases/AppTidy-0.1.0.dmg
+APPTIDY_DOWNLOAD_KEY=releases/AppTidy-0.1.1.dmg
 ```
 
 Optional metadata environment variables keep the browser filename, response
 headers, and `/download/checksum` endpoint aligned with the release in R2:
 
 ```text
-APPTIDY_DOWNLOAD_VERSION=0.1.0
-APPTIDY_DOWNLOAD_FILENAME=AppTidy-0.1.0.dmg
-APPTIDY_DOWNLOAD_SHA256=8197fed802f54eef2d038c0ac2c220a0c23c56fca392fe8bbd371fa7dfb1b729
+APPTIDY_DOWNLOAD_VERSION=0.1.1
+APPTIDY_DOWNLOAD_FILENAME=AppTidy-0.1.1.dmg
+APPTIDY_DOWNLOAD_SHA256=2d6b9dd8e3dffe274fc113fb90ff67e66b4ebe475ced1ef3284f0cc242e6bf8e
 ```
 
 Keep DMG files out of the website repository. Upload versioned builds to R2 and

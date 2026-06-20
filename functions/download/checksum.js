@@ -1,6 +1,6 @@
-const DEFAULT_VERSION = "0.1.0";
+const DEFAULT_VERSION = "0.1.1";
 const DEFAULT_FILENAME = `AppTidy-${DEFAULT_VERSION}.dmg`;
-const DEFAULT_SHA256 = "8197fed802f54eef2d038c0ac2c220a0c23c56fca392fe8bbd371fa7dfb1b729";
+const DEFAULT_SHA256 = "2d6b9dd8e3dffe274fc113fb90ff67e66b4ebe475ced1ef3284f0cc242e6bf8e";
 
 function downloadVersion(env) {
   return env.APPTIDY_DOWNLOAD_VERSION || DEFAULT_VERSION;
