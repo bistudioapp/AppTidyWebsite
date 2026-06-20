@@ -14,6 +14,7 @@ Then visit `http://localhost:8765`.
 
 - `index.html` - Main AppTidy landing page.
 - `help.html` - AppTidy help and setup guide.
+- `tips.html` - Support the developer / Ko-fi tips page.
 - `privacy.html` - Privacy policy.
 - `terms.html` - Terms of use.
 - `copyright-trademark.html` - Copyright, trademark, and attribution notices.
@@ -23,18 +24,24 @@ The footer credits both the app development and website design to `bistudio.app`
 ## Downloads
 
 Download buttons point to `/download`. In Cloudflare Pages / Workers & Pages,
-`functions/download.js` redirects that route to the latest signed DMG.
+`functions/download.js` streams that route from a private R2 bucket.
 
-Set this production environment variable in Cloudflare when the R2 public URL is
-ready:
+Configure the Pages Function with an R2 bucket binding:
 
 ```text
-APPTIDY_DOWNLOAD_URL=https://downloads.app-tidy.com/AppTidy-latest.dmg
+APPTIDY_DOWNLOADS
 ```
 
-Keep DMG files out of the website repository. Upload versioned builds to R2, for
-example `releases/AppTidy-0.1.0.dmg`, and update the latest object when a new
-release ships.
+By default, `/download` serves `AppTidy-latest.dmg`. You can override the object
+key with a production environment variable:
+
+```text
+APPTIDY_DOWNLOAD_KEY=releases/AppTidy-0.1.0.dmg
+```
+
+Keep DMG files out of the website repository. Upload versioned builds to R2 and
+copy or alias the current release to `AppTidy-latest.dmg` when a new release
+ships.
 
 ## Cloudflare Deployment
 
@@ -49,12 +56,13 @@ Recommended Cloudflare setup:
 - Build command: leave empty.
 - Build output directory: `/`.
 - Functions directory: `functions`.
-- Production environment variable:
-  `APPTIDY_DOWNLOAD_URL=https://downloads.app-tidy.com/AppTidy-latest.dmg`
+- R2 bucket binding: `APPTIDY_DOWNLOADS`.
+- Optional production environment variable:
+  `APPTIDY_DOWNLOAD_KEY=AppTidy-latest.dmg`
 
 After the GitHub repo is connected, every push to the default branch can deploy
 the website automatically. The DMG should be uploaded separately to Cloudflare
-R2 and served through the download URL above.
+R2 and served through the `/download` function.
 
 ## Screenshot Assets
 
