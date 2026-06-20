@@ -23,7 +23,8 @@ The footer credits both the app development and website design to `bistudio.app`
 
 ## Downloads
 
-Download buttons point to `/download`. In Cloudflare Pages / Workers & Pages,
+Download buttons point to `/download?v=0.1.0` so browsers do not reuse a stale
+cached `latest` response. In Cloudflare Pages / Workers & Pages,
 `functions/download.js` streams that route from a private R2 bucket.
 
 Configure the Pages Function with an R2 bucket binding:
