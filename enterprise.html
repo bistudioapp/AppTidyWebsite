@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AppTidy Enterprise Deployment</title>
+  <meta name="description" content="Enterprise deployment overview for AppTidy with Microsoft Intune, Company Portal, Jamf Pro, and Jamf Self Service or Self Service+.">
+  <link rel="icon" href="assets/app-icon.png">
+  <link rel="stylesheet" href="page.css">
+</head>
+<body>
+  <header class="nav" aria-label="Site navigation">
+    <a class="brand" href="index.html" aria-label="AppTidy home">
+      <img src="assets/app-icon.png" alt="">
+      <span>AppTidy</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html#walkthrough">How it works</a>
+      <a href="index.html#features">Features</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="enterprise.html">Enterprise</a>
+      <a href="help.html">Help</a>
+      <a class="button" href="/download">Download</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <div class="hero">
+      <div class="eyebrow">Enterprise</div>
+      <h1>Deploy AppTidy with Intune or Jamf.</h1>
+      <p class="lead">AppTidy can be distributed to managed Macs through Microsoft Intune / Company Portal or Jamf Pro / Self Service or Self Service+ using the signed and notarized direct-download package.</p>
+      <p class="meta">Last updated: June 20, 2026</p>
+      <div class="split-actions">
+        <a class="button" href="enterprise-intune.html">Intune guide</a>
+        <a class="button secondary" href="enterprise-jamf.html">Jamf guide</a>
+      </div>
+    </div>
+
+    <div class="content">
+      <section>
+        <h2>Deployment Facts</h2>
+        <div class="facts">
+          <div class="fact-row">
+            <strong>Bundle ID</strong>
+            <code>com.apptidy.AppTidy</code>
+          </div>
+          <div class="fact-row">
+            <strong>Install path</strong>
+            <code>/Applications/AppTidy.app</code>
+          </div>
+          <div class="fact-row">
+            <strong>Minimum macOS</strong>
+            <span>macOS 13 or later</span>
+          </div>
+          <div class="fact-row">
+            <strong>Distribution</strong>
+            <span>Signed and notarized DMG from <code>app-tidy.com</code></span>
+          </div>
+          <div class="fact-row">
+            <strong>Privacy permissions</strong>
+            <span>Full Disk Access helps AppTidy scan protected user data. It does not bypass administrator approval for root-owned apps in <code>/Applications</code>.</span>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Recommended Model</h2>
+        <p>For broad rollout, publish AppTidy as available in Company Portal or Jamf Self Service or Self Service+ first, then move to required deployment after a pilot. This gives admins time to verify signing, notarization, privacy prompts, and cleanup behavior on managed Macs.</p>
+        <div class="pill-row">
+          <span class="pill">Company Portal</span>
+          <span class="pill">Jamf Self Service+</span>
+          <span class="pill">Signed DMG</span>
+          <span class="pill">macOS 13+</span>
+        </div>
+      </section>
+
+      <section class="callout">
+        <h2>About Full Disk Access</h2>
+        <p>Organizations can manage privacy permissions with a PPPC configuration profile when they know the final signed app identity. Do not build PPPC payloads from ad-hoc debug builds because the code requirement changes. Full Disk Access is useful for scanning protected user data, but administrator-owned app bundles may still require native macOS approval.</p>
+      </section>
+
+      <section>
+        <h2>Choose Your Platform</h2>
+        <div class="grid">
+          <article class="panel">
+            <h3>Microsoft Intune</h3>
+            <p>Upload the signed DMG as a macOS app, set macOS 13+ requirements, add the bundle ID detection rule, and assign it as available or required.</p>
+            <a class="button secondary" href="enterprise-intune.html">Open Intune guide</a>
+          </article>
+          <article class="panel">
+            <h3>Jamf Pro</h3>
+            <p>Upload the package or DMG, create a policy, scope it to target Macs, and optionally publish it to Jamf Self Service or Self Service+.</p>
+            <a class="button secondary" href="enterprise-jamf.html">Open Jamf guide</a>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <h2>Official References</h2>
+        <ul class="source-list">
+          <li><a href="https://learn.microsoft.com/en-us/intune/app-management/deployment/add-dmg-macos">Microsoft Intune DMG app deployment</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/intune/device-configuration/templates/configure-custom-settings-apple">Microsoft Intune custom Apple profiles</a></li>
+          <li><a href="https://learn.jamf.com/r/en-US/jamf-pro-documentation-current/Package_Deployment">Jamf Pro package deployment</a></li>
+          <li><a href="https://learn.jamf.com/r/en-US/jamf-pro-documentation-current/Jamf_Self_Service_for_macOS">Jamf Self Service for macOS</a></li>
+          <li><a href="https://support.apple.com/guide/deployment/privacy-preferences-policy-control-payload-dep38df53c2a/web">Apple PPPC payload reference</a></li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <strong>AppTidy</strong>
+        <p class="credit">App developed by <a href="https://bistudio.app">bistudio.app</a>. Website design by <a href="https://bistudio.app">bistudio.app</a>.</p>
+      </div>
+      <div class="footer-links">
+        <strong>Product</strong>
+        <a href="index.html">Home</a>
+        <a href="enterprise.html">Enterprise</a>
+        <a href="help.html">Help</a>
+        <a href="/download">Download</a>
+      </div>
+      <div class="footer-links">
+        <strong>Legal</strong>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Use</a>
+        <a href="copyright-trademark.html">Copyright & Trademark</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

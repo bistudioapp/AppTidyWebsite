@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Deploy AppTidy with Jamf Pro</title>
+  <meta name="description" content="Step-by-step Jamf Pro and Jamf Self Service or Self Service+ deployment guide for AppTidy on managed Macs.">
+  <link rel="icon" href="assets/app-icon.png">
+  <link rel="stylesheet" href="page.css">
+</head>
+<body>
+  <header class="nav" aria-label="Site navigation">
+    <a class="brand" href="index.html" aria-label="AppTidy home">
+      <img src="assets/app-icon.png" alt="">
+      <span>AppTidy</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html#walkthrough">How it works</a>
+      <a href="index.html#features">Features</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="enterprise.html">Enterprise</a>
+      <a href="help.html">Help</a>
+      <a class="button" href="/download">Download</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <div class="hero">
+      <div class="eyebrow">Jamf Pro</div>
+      <h1>Deploy AppTidy with Jamf Self Service.</h1>
+      <p class="lead">Publish AppTidy to managed Macs with a Jamf Pro policy. Use Self Service or Self Service+ for user-initiated install, or scope a required policy after pilot testing.</p>
+      <p class="meta">Last updated: June 20, 2026</p>
+      <div class="split-actions">
+        <a class="button" href="enterprise.html">Enterprise overview</a>
+        <a class="button secondary" href="enterprise-intune.html">Intune guide</a>
+      </div>
+    </div>
+
+    <div class="notice">
+      <p>A signed PKG is usually the cleanest enterprise package for Jamf policy deployment. If your current release is a signed and notarized DMG, document that as the current path and add a PKG workflow when available. Jamf's current docs distinguish Self Service classic from Self Service+; use whichever end-user app your organization has standardized on.</p>
+    </div>
+
+    <div class="content">
+      <section>
+        <h2>App Details</h2>
+        <div class="facts">
+          <div class="fact-row">
+            <strong>Bundle ID</strong>
+            <code>com.apptidy.AppTidy</code>
+          </div>
+          <div class="fact-row">
+            <strong>Install path</strong>
+            <code>/Applications/AppTidy.app</code>
+          </div>
+          <div class="fact-row">
+            <strong>Minimum OS</strong>
+            <span>macOS 13 or later</span>
+          </div>
+          <div class="fact-row">
+            <strong>Recommended package</strong>
+            <span>Signed and notarized PKG for Jamf policies when available; signed DMG as the current direct-download path.</span>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Step-by-Step Deployment</h2>
+        <div class="steps">
+          <article class="step">
+            <div>
+              <h3>Download the final package</h3>
+              <p>Use the production signed and notarized AppTidy release. Prefer a PKG for Jamf policy deployment when available; otherwise use the approved DMG package workflow.</p>
+            </div>
+          </article>
+          <article class="step">
+            <div>
+              <h3>Upload to Jamf Pro</h3>
+              <p>In Jamf Pro, upload the package or DMG to your distribution point or Jamf Cloud distribution point.</p>
+            </div>
+          </article>
+          <article class="step">
+            <div>
+              <h3>Create a policy</h3>
+              <p>Create a new policy for AppTidy. Configure the trigger and execution frequency based on whether the install is required or user-initiated.</p>
+            </div>
+          </article>
+          <article class="step">
+            <div>
+              <h3>Add the package</h3>
+              <p>Add the AppTidy package to the policy Packages payload. Confirm the package installs AppTidy to <code>/Applications/AppTidy.app</code>.</p>
+            </div>
+          </article>
+          <article class="step">
+            <div>
+              <h3>Scope the policy</h3>
+              <p>Scope the policy to a pilot smart group first, then broaden to target departments, device groups, or all managed Macs after validation.</p>
+            </div>
+          </article>
+          <article class="step">
+            <div>
+              <h3>Add Self Service details</h3>
+              <p>For user-initiated install, enable the policy in Self Service or Self Service+, add the AppTidy icon, and use a concise description that explains review-first cleanup.</p>
+            </div>
+          </article>
+          <article class="step">
+            <div>
+              <h3>Test on a clean Mac</h3>
+              <p>Run the policy on a test Mac, confirm AppTidy launches, and verify the installed app bundle ID is <code>com.apptidy.AppTidy</code>.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="callout">
+        <h2>Optional PPPC Profile</h2>
+        <p>Use a Jamf computer configuration profile if the organization wants to manage privacy permissions such as Full Disk Access. Use identifier <code>com.apptidy.AppTidy</code>, identifier type <code>bundleID</code>, and the final Developer ID-signed code requirement. Full Disk Access helps scan protected user data, but it does not bypass administrator approval for root-owned app bundles.</p>
+      </section>
+
+      <section>
+        <h2>Troubleshooting</h2>
+        <ul>
+          <li>If the policy runs but AppTidy is missing, confirm the package payload installs into <code>/Applications</code>.</li>
+          <li>If Self Service install is unavailable, check policy scope, category, and Self Service settings.</li>
+          <li>If privacy permissions do not apply, rebuild the PPPC profile using the final signed AppTidy code requirement and redeploy the configuration profile.</li>
+          <li>If macOS requests administrator approval during app removal, that approval is expected for root-owned app bundles and is separate from Full Disk Access.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Official References</h2>
+        <ul class="source-list">
+          <li><a href="https://learn.jamf.com/r/en-US/jamf-pro-documentation-current/Package_Deployment">Jamf Pro package deployment</a></li>
+          <li><a href="https://learn.jamf.com/r/en-US/jamf-pro-documentation-current/Packages">Jamf Pro packages</a></li>
+          <li><a href="https://learn.jamf.com/r/en-US/jamf-pro-documentation-current/Jamf_Self_Service_for_macOS">Jamf Self Service for macOS</a></li>
+          <li><a href="https://learn.jamf.com/r/en-US/jamf-pro-documentation-current/Computer_Configuration_Profiles">Jamf computer configuration profiles</a></li>
+          <li><a href="https://support.apple.com/guide/deployment/privacy-preferences-policy-control-payload-dep38df53c2a/web">Apple PPPC payload reference</a></li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <strong>AppTidy</strong>
+        <p class="credit">App developed by <a href="https://bistudio.app">bistudio.app</a>. Website design by <a href="https://bistudio.app">bistudio.app</a>.</p>
+      </div>
+      <div class="footer-links">
+        <strong>Product</strong>
+        <a href="index.html">Home</a>
+        <a href="enterprise.html">Enterprise</a>
+        <a href="help.html">Help</a>
+        <a href="/download">Download</a>
+      </div>
+      <div class="footer-links">
+        <strong>Legal</strong>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Use</a>
+        <a href="copyright-trademark.html">Copyright & Trademark</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

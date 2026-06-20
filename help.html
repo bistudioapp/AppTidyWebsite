@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AppTidy Help</title>
+  <meta name="description" content="Help and setup guide for AppTidy, a focused macOS app uninstaller.">
+  <link rel="icon" href="assets/app-icon.png">
+  <link rel="stylesheet" href="page.css">
+</head>
+<body>
+  <header class="nav" aria-label="Site navigation">
+    <a class="brand" href="index.html" aria-label="AppTidy home">
+      <img src="assets/app-icon.png" alt="">
+      <span>AppTidy</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html#walkthrough">How it works</a>
+      <a href="index.html#features">Features</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="enterprise.html">Enterprise</a>
+      <a class="button" href="/download">Download</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <div class="hero">
+      <div class="eyebrow">Help</div>
+      <h1>Using AppTidy</h1>
+      <p class="lead">AppTidy is designed around one safe habit: review the related files first, then move selected items to Trash.</p>
+      <p class="meta">Last updated: June 20, 2026</p>
+    </div>
+
+    <div class="grid">
+      <article class="panel">
+        <h2>Quick Start</h2>
+        <ul>
+          <li>Open AppTidy and drop an app onto the drop area, or choose from the installed app list.</li>
+          <li>Review the scan results. Recommended items are selected by default.</li>
+          <li>Use All only when you recognize the review items and want a broader cleanup.</li>
+          <li>Click Remove. AppTidy moves files to Trash, not permanent deletion.</li>
+        </ul>
+      </article>
+      <article class="panel">
+        <h2>Restore Files</h2>
+        <p>If you need to undo a cleanup, open Finder Trash and move items back to their original locations. AppTidy history can help you review what moved.</p>
+      </article>
+    </div>
+
+    <div class="content" style="margin-top:20px">
+      <section>
+        <h2>Full Disk Access</h2>
+        <p>Full Disk Access helps AppTidy scan protected user data locations. macOS still requires you to approve access in System Settings. If AppTidy is not listed, click the plus button in Full Disk Access and choose AppTidy.app.</p>
+      </section>
+      <section>
+        <h2>Review Items</h2>
+        <p>Review means AppTidy found a possible leftover that may be shared, fuzzy-matched, or not uniquely owned by the selected app. These items are not automatically selected. Select them only when you recognize them.</p>
+      </section>
+      <section>
+        <h2>Leftovers</h2>
+        <p>The Leftovers screen finds orphaned caches and support folders that no installed app clearly owns. It is intentionally review-only because many developer tools and shared frameworks use generic folder names.</p>
+      </section>
+      <section>
+        <h2>Administrator Approval</h2>
+        <p>Apps installed in /Applications can be owned by root or an administrator account. When macOS requires approval, AppTidy asks through the native macOS password or Touch ID prompt and still moves items to Trash.</p>
+      </section>
+      <section>
+        <h2>Smart Delete</h2>
+        <p>Smart Delete watches for apps moved to Trash and can open AppTidy to review leftovers. Nothing is removed automatically.</p>
+      </section>
+      <section>
+        <h2>Enterprise Deployment</h2>
+        <p>Admins can deploy AppTidy with Microsoft Intune / Company Portal or Jamf Pro / Self Service or Self Service+. The enterprise guides include bundle ID, install path, macOS requirements, and optional PPPC notes.</p>
+        <ul>
+          <li><a href="enterprise.html">Enterprise overview</a></li>
+          <li><a href="enterprise-intune.html">Microsoft Intune guide</a></li>
+          <li><a href="enterprise-jamf.html">Jamf Pro guide</a></li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <strong>AppTidy</strong>
+        <p class="credit">App developed by <a href="https://bistudio.app">bistudio.app</a>. Website design by <a href="https://bistudio.app">bistudio.app</a>.</p>
+      </div>
+      <div class="footer-links">
+        <strong>Product</strong>
+        <a href="index.html">Home</a>
+        <a href="enterprise.html">Enterprise</a>
+        <a href="help.html">Help</a>
+        <a href="/download">Download</a>
+      </div>
+      <div class="footer-links">
+        <strong>Legal</strong>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Use</a>
+        <a href="copyright-trademark.html">Copyright & Trademark</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

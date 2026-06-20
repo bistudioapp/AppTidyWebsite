@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Deploy AppTidy with Microsoft Intune</title>
+  <meta name="description" content="Step-by-step Microsoft Intune and Company Portal deployment guide for AppTidy on managed Macs.">
+  <link rel="icon" href="assets/app-icon.png">
+  <link rel="stylesheet" href="page.css">
+</head>
+<body>
+  <header class="nav" aria-label="Site navigation">
+    <a class="brand" href="index.html" aria-label="AppTidy home">
+      <img src="assets/app-icon.png" alt="">
+      <span>AppTidy</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html#walkthrough">How it works</a>
+      <a href="index.html#features">Features</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="enterprise.html">Enterprise</a>
+      <a href="help.html">Help</a>
+      <a class="button" href="/download">Download</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <div class="hero">
+      <div class="eyebrow">Microsoft Intune</div>
+      <h1>Deploy AppTidy with Company Portal.</h1>
+      <p class="lead">Use Intune's macOS DMG app flow to upload AppTidy, detect it by bundle ID, and assign it as available or required for managed Macs.</p>
+      <p class="meta">Last updated: June 20, 2026</p>
+      <div class="split-actions">
+        <a class="button" href="enterprise.html">Enterprise overview</a>
+        <a class="button secondary" href="enterprise-jamf.html">Jamf guide</a>
+      </div>
+    </div>
+
+    <div class="notice">
+      <p>This guide assumes AppTidy is distributed as a signed and notarized DMG from app-tidy.com. Validate the final DMG on a pilot Mac before assigning it broadly.</p>
+    </div>
+
+    <div class="content">
+      <section>
+        <h2>App Details</h2>
+        <div class="facts">
+          <div class="fact-row">
+            <strong>App type</strong>
+            <span>macOS app (DMG)</span>
+          </div>
+          <div class="fact-row">
+            <strong>Bundle ID</strong>
+            <code>com.apptidy.AppTidy</code>
+          </div>
+          <div class="fact-row">
+            <strong>Install path</strong>
+            <code>/Applications/AppTidy.app</code>
+          </div>
+          <div class="fact-row">
+            <strong>Minimum OS</strong>
+            <span>macOS 13 or later</span>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Step-by-Step Deployment</h2>
+        <div class="steps">
+          <article class="step">
+            <div>
+              <h3>Download the final DMG</h3>
+              <p>Use the signed and notarized <code>AppTidy.dmg</code> from the production download location. Do not deploy ad-hoc debug builds to users.</p>
+            </div>
+          </article>
+          <article class="step">
+            <div>
+              <h3>Add a macOS DMG app</h3>
+              <p>In the Intune admin center, go to Apps, choose macOS, select Add, and use the app type <code>macOS app (DMG)</code>.</p>
+            </div>
+          </article>
+          <article class="step">
+            <div>
+              <h3>Upload AppTidy.dmg</h3>
+              <p>Upload the DMG and wait for Intune to process it. Use a stable versioned file name for release tracking.</p>
+            </div>
+          </article>
+          <article class="step">
+            <div>
+              <h3>Configure app information</h3>
+              <p>Set the name to AppTidy, publisher to bistudio.app, category to Utilities, and add a short description and app icon for Company Portal.</p>
+            </div>
+          </article>
+          <article class="step">
+            <div>
+              <h3>Set requirements</h3>
+              <p>Require macOS 13 or later. Add any organization-specific device filters or group targeting rules separately.</p>
+            </div>
+          </article>
+          <article class="step">
+            <div>
+              <h3>Configure detection</h3>
+              <p>Use bundle ID <code>com.apptidy.AppTidy</code>. If your Intune workflow asks for a version, use the final app's <code>CFBundleShortVersionString</code> or your approved release version.</p>
+            </div>
+          </article>
+          <article class="step">
+            <div>
+              <h3>Assign the app</h3>
+              <p>Use Available for enrolled devices when you want users to install from Company Portal. Use Required only after pilot testing automatic installation.</p>
+            </div>
+          </article>
+          <article class="step">
+            <div>
+              <h3>Test and monitor</h3>
+              <p>Install on a clean managed Mac, confirm AppTidy appears in <code>/Applications</code>, launch it, and verify Intune reports the install as detected.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="callout">
+        <h2>Optional PPPC Profile</h2>
+        <p>If your organization wants to pre-approve privacy access, deploy a custom Apple configuration profile from Intune. Build the PPPC payload with the final Developer ID-signed AppTidy code requirement, not a debug build. Full Disk Access helps with protected user data scanning and does not remove macOS administrator approval prompts for root-owned app bundles.</p>
+      </section>
+
+      <section>
+        <h2>Troubleshooting</h2>
+        <ul>
+          <li>If detection fails, confirm the deployed app bundle is installed at <code>/Applications/AppTidy.app</code> and has bundle ID <code>com.apptidy.AppTidy</code>.</li>
+          <li>If users see privacy prompts, confirm whether your PPPC profile is installed and whether it was generated from the final signed app identity.</li>
+          <li>If root-owned apps require Touch ID or password approval, that is expected macOS behavior and is separate from Full Disk Access.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Official References</h2>
+        <ul class="source-list">
+          <li><a href="https://learn.microsoft.com/en-us/intune/app-management/deployment/add-dmg-macos">Microsoft Intune DMG app deployment</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/intune/device-configuration/templates/configure-custom-settings-apple">Microsoft Intune custom Apple profiles</a></li>
+          <li><a href="https://support.apple.com/guide/deployment/privacy-preferences-policy-control-payload-dep38df53c2a/web">Apple PPPC payload reference</a></li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <strong>AppTidy</strong>
+        <p class="credit">App developed by <a href="https://bistudio.app">bistudio.app</a>. Website design by <a href="https://bistudio.app">bistudio.app</a>.</p>
+      </div>
+      <div class="footer-links">
+        <strong>Product</strong>
+        <a href="index.html">Home</a>
+        <a href="enterprise.html">Enterprise</a>
+        <a href="help.html">Help</a>
+        <a href="/download">Download</a>
+      </div>
+      <div class="footer-links">
+        <strong>Legal</strong>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Use</a>
+        <a href="copyright-trademark.html">Copyright & Trademark</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
