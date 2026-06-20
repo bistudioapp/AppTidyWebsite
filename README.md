@@ -13,8 +13,10 @@ Then visit `http://localhost:8765`.
 ## Pages
 
 - `index.html` - Main AppTidy landing page.
+- `how-it-works.html` - AppTidy workflow walkthrough page.
+- `features.html` - AppTidy feature overview page.
 - `help.html` - AppTidy help and setup guide.
-- `tips.html` - Support the developer / Ko-fi tips page.
+- `tips.html` - Support Dev / Ko-fi tips page.
 - `privacy.html` - Privacy policy.
 - `terms.html` - Terms of use.
 - `copyright-trademark.html` - Copyright, trademark, and attribution notices.

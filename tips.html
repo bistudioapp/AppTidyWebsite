@@ -15,30 +15,47 @@
       <span>AppTidy</span>
     </a>
     <nav class="nav-links" aria-label="Primary">
-      <a href="index.html#walkthrough">How it works</a>
-      <a href="index.html#features">Features</a>
+      <a href="index.html">Home</a>
+      <a href="how-it-works.html">How it works</a>
+      <a href="features.html">Features</a>
       <a href="privacy.html">Privacy</a>
       <a href="enterprise.html">Enterprise</a>
       <a href="help.html">Help</a>
-      <a href="tips.html">Tips</a>
-      <a class="button" href="/download?v=0.1.0" aria-label="Download AppTidy for macOS"><span aria-hidden="true"></span><span>Download AppTidy for macOS</span></a>
+      <a href="tips.html">Support Dev</a>
+      <a class="button" href="/download?v=0.1.0" aria-label="Download AppTidy for macOS"><span aria-hidden="true"></span><span>Download</span></a>
     </nav>
   </header>
 
-  <main class="page">
-    <div class="hero">
-      <div class="eyebrow">Tips</div>
-      <h1>Support the developer.</h1>
-      <p class="lead">AppTidy is built as a focused Mac utility: local-first, review-first, and made to stay straightforward. Tips help keep that work moving.</p>
-      <div class="split-actions">
-        <a class="button" href="https://ko-fi.com/bistudioapp" target="_blank" rel="noopener noreferrer">Tip on Ko-fi</a>
-        <a class="button secondary" href="/download?v=0.1.0" aria-label="Download AppTidy for macOS"><span aria-hidden="true"></span><span>Download AppTidy</span></a>
+  <main class="page tips-page">
+    <section class="tips-hero" aria-labelledby="tips-title">
+      <div class="hero tips-hero-copy">
+        <div class="eyebrow">Support Dev</div>
+        <h1 id="tips-title">Support the developer.</h1>
+        <p class="lead">AppTidy is built as a focused Mac utility: local-first, review-first, and made to stay straightforward. Support helps keep that work moving.</p>
+        <div class="split-actions">
+          <a class="button" href="https://ko-fi.com/bistudioapp" target="_blank" rel="noopener noreferrer">Tip on Ko-fi</a>
+        </div>
       </div>
-    </div>
+      <figure class="tips-visual">
+        <img src="assets/support-ko-fi-horizontal.png" alt="Support me on Ko-fi">
+      </figure>
+    </section>
+
+    <section class="kofi-window" aria-labelledby="kofi-title">
+      <div>
+        <div class="eyebrow">Ko-fi</div>
+        <h2 id="kofi-title">Tip from this page.</h2>
+        <p>Ko-fi handles checkout for AppTidy support. AppTidy does not collect payment details, and the app remains free to download and use.</p>
+      </div>
+      <div class="split-actions">
+        <a class="button" href="https://ko-fi.com/bistudioapp" target="_blank" rel="noopener noreferrer">Open Ko-fi</a>
+        <a class="button secondary" href="help.html">Send Feedback</a>
+      </div>
+    </section>
 
     <div class="grid">
       <article class="panel">
-        <h2>Why Tips Help</h2>
+        <h2>Why Support Helps</h2>
         <p>Every contribution supports development time, signing and release work, testing across macOS versions, and the care needed for a safe cleanup app.</p>
       </article>
       <article class="panel">
@@ -60,18 +77,10 @@
   </main>
 
   <footer>
-    <div class="footer-inner">
+    <div class="footer-inner footer-simple">
       <div>
         <strong>AppTidy</strong>
         <p class="credit">Developed and Designed by <a href="https://bistudio.app">bistudio.app</a></p>
-      </div>
-      <div class="footer-links">
-        <strong>Product</strong>
-        <a href="index.html">Home</a>
-        <a href="enterprise.html">Enterprise</a>
-        <a href="help.html">Help</a>
-        <a href="tips.html">Tips</a>
-        <a href="/download?v=0.1.0">Download AppTidy for macOS</a>
       </div>
       <div class="footer-links">
         <strong>Legal</strong>
@@ -81,5 +90,20 @@
       </div>
     </div>
   </footer>
+  <script src="https://storage.ko-fi.com/cdn/scripts/overlay-widget.js"></script>
+  <script>
+    window.addEventListener("load", function () {
+      if (!window.kofiWidgetOverlay) {
+        return;
+      }
+
+      window.kofiWidgetOverlay.draw("bistudioapp", {
+        type: "floating-chat",
+        "floating-chat.donateButton.text": "Tip AppTidy",
+        "floating-chat.donateButton.background-color": "#0a84ff",
+        "floating-chat.donateButton.text-color": "#fff"
+      });
+    });
+  </script>
 </body>
 </html>

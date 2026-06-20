@@ -1,30 +1,37 @@
 :root {
   color-scheme: light dark;
-  --bg: #f7fafb;
+  --bg: #f3f8fb;
   --bg-strong: #ffffff;
-  --text: #1f2428;
-  --muted: #697177;
-  --line: rgba(31, 36, 40, 0.12);
-  --panel: rgba(255, 255, 255, 0.82);
-  --blue: #0a84ff;
-  --cyan: #18c6d8;
-  --green: #34c759;
-  --shadow: rgba(10, 34, 50, 0.14);
+  --text: #101b22;
+  --muted: #5d6f78;
+  --line: rgba(16, 27, 34, 0.12);
+  --panel: rgba(255, 255, 255, 0.68);
+  --panel-strong: rgba(255, 255, 255, 0.92);
+  --blue: #1174e6;
+  --cyan: #20c6d8;
+  --green: #34c77b;
+  --orange: #ff9f43;
+  --shadow: rgba(20, 48, 62, 0.18);
+  --button-shadow: rgba(17, 116, 230, 0.22);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #151718;
-    --bg-strong: #1d2023;
-    --text: #f5f7f8;
-    --muted: #a7adb2;
-    --line: rgba(255, 255, 255, 0.12);
-    --panel: rgba(255, 255, 255, 0.06);
-    --shadow: rgba(0, 0, 0, 0.34);
+    --bg: #071116;
+    --bg-strong: #0e1a21;
+    --text: #f5f9fb;
+    --muted: #a9b8c0;
+    --line: rgba(226, 246, 255, 0.14);
+    --panel: rgba(14, 28, 36, 0.68);
+    --panel-strong: rgba(18, 35, 44, 0.9);
+    --shadow: rgba(0, 0, 0, 0.48);
+    --button-shadow: rgba(17, 116, 230, 0.28);
   }
 }
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -34,8 +41,9 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
   color: var(--text);
   background:
-    radial-gradient(circle at 12% 8%, color-mix(in srgb, var(--cyan) 20%, transparent), transparent 32%),
-    radial-gradient(circle at 88% 16%, color-mix(in srgb, var(--green) 14%, transparent), transparent 30%),
+    radial-gradient(circle at 16% -6%, color-mix(in srgb, var(--cyan) 24%, transparent), transparent 34%),
+    radial-gradient(circle at 88% 4%, color-mix(in srgb, var(--green) 17%, transparent), transparent 30%),
+    linear-gradient(135deg, color-mix(in srgb, var(--bg-strong) 70%, transparent), transparent 44%),
     var(--bg);
 }
 
@@ -50,12 +58,13 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
-  min-height: 74px;
+  gap: 18px;
+  min-height: 70px;
   padding: 0 clamp(20px, 5vw, 58px);
   border-bottom: 1px solid var(--line);
-  background: color-mix(in srgb, var(--bg-strong) 88%, transparent);
-  backdrop-filter: blur(18px);
+  background: color-mix(in srgb, var(--bg-strong) 76%, transparent);
+  backdrop-filter: blur(24px) saturate(1.18);
+  box-shadow: 0 18px 46px rgba(14, 38, 52, 0.08);
 }
 
 .brand {
@@ -63,7 +72,7 @@ a {
   align-items: center;
   gap: 12px;
   color: var(--text);
-  font-weight: 800;
+  font-weight: 780;
   text-decoration: none;
 }
 
@@ -71,14 +80,16 @@ a {
   width: 34px;
   height: 34px;
   border-radius: 9px;
+  box-shadow: 0 8px 24px color-mix(in srgb, var(--cyan) 22%, transparent);
 }
 
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: 16px;
   color: var(--muted);
-  font-weight: 650;
+  font-size: 13px;
+  font-weight: 700;
 }
 
 .nav-links a {
@@ -90,17 +101,33 @@ a {
 }
 
 .button {
-  min-height: 42px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0 18px;
+  gap: 8px;
+  min-height: 40px;
+  padding: 0 16px;
+  border: 0;
   border-radius: 999px;
   color: white;
-  background: linear-gradient(145deg, var(--blue), var(--cyan));
-  font-weight: 800;
+  background: linear-gradient(135deg, #1174e6 0%, #18bfd8 58%, #34c77b 100%);
+  font-size: 14px;
+  font-weight: 780;
+  letter-spacing: 0;
   text-decoration: none;
-  box-shadow: 0 14px 34px color-mix(in srgb, var(--blue) 30%, transparent);
+  box-shadow: 0 14px 30px var(--button-shadow), inset 0 1px rgba(255, 255, 255, 0.34);
+}
+
+.button span[aria-hidden="true"] {
+  font-size: 17px;
+  line-height: 1;
+  margin-top: -1px;
+}
+
+.nav .button {
+  min-height: 38px;
+  padding: 0 15px 0 13px;
+  gap: 7px;
 }
 
 .page {
@@ -112,6 +139,60 @@ a {
 .hero {
   max-width: 760px;
   margin-bottom: 36px;
+}
+
+.tips-page {
+  width: min(100% - 40px, 1080px);
+}
+
+.tips-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(320px, 0.78fr);
+  gap: clamp(24px, 5vw, 46px);
+  align-items: center;
+  margin-bottom: 28px;
+}
+
+.tips-hero-copy {
+  margin-bottom: 0;
+  min-width: 0;
+}
+
+.tips-visual {
+  margin: 0;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: var(--panel);
+  box-shadow: 0 18px 52px var(--shadow);
+}
+
+.tips-visual img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.kofi-window {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 22px;
+  align-items: end;
+  margin: 0 0 20px;
+  padding: 26px;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: color-mix(in srgb, var(--panel) 86%, transparent);
+  box-shadow: 0 18px 52px var(--shadow);
+  backdrop-filter: blur(18px);
+}
+
+.kofi-window p {
+  max-width: 680px;
+  margin-bottom: 0;
 }
 
 .eyebrow {
@@ -131,8 +212,9 @@ a {
 
 h1 {
   margin: 18px 0 14px;
-  font-size: clamp(42px, 6vw, 68px);
-  line-height: 1;
+  font-size: clamp(40px, 5.6vw, 64px);
+  line-height: 1.04;
+  font-weight: 860;
   letter-spacing: 0;
 }
 
@@ -150,7 +232,7 @@ h3 {
 p,
 li {
   color: var(--muted);
-  line-height: 1.65;
+  line-height: 1.62;
   font-size: 17px;
 }
 
@@ -355,6 +437,10 @@ footer {
   color: var(--muted);
 }
 
+.footer-inner.footer-simple {
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
 .footer-inner strong {
   color: var(--text);
 }
@@ -392,6 +478,8 @@ footer {
   }
 
   .grid,
+  .tips-hero,
+  .kofi-window,
   .footer-inner {
     grid-template-columns: 1fr;
   }
@@ -399,5 +487,24 @@ footer {
   .fact-row,
   .step {
     grid-template-columns: 1fr;
+  }
+
+  .tips-visual {
+    order: -1;
+  }
+
+  h1 {
+    font-size: clamp(38px, 11vw, 46px);
+  }
+
+  .kofi-window {
+    align-items: start;
+    padding: 22px;
+  }
+
+  .floatingchat-container-wrap-mobi {
+    left: max(16px, calc(100vw - 211px)) !important;
+    right: auto !important;
+    bottom: 84px !important;
   }
 }

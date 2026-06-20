@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AppTidy - Uninstall Mac apps without leaving files behind</title>
-  <meta name="description" content="AppTidy is a focused macOS uninstaller that finds related files, shows why they were found, and moves selected items to Trash.">
+  <title>How AppTidy Works</title>
+  <meta name="description" content="See the AppTidy review-first cleanup workflow for uninstalling Mac apps safely.">
   <link rel="icon" href="assets/app-icon.png">
   <style>
     :root {
@@ -1252,12 +1252,12 @@
 <body>
   <div class="site-shell">
     <header class="nav" aria-label="Site navigation">
-      <a class="brand" href="#top" aria-label="AppTidy home">
+      <a class="brand" href="index.html" aria-label="AppTidy home">
         <img src="assets/app-icon.png" alt="" width="34" height="34">
         <span>AppTidy</span>
       </a>
       <nav class="nav-links" aria-label="Primary">
-        <a href="#top">Home</a>
+        <a href="index.html">Home</a>
         <a href="how-it-works.html">How it works</a>
         <a href="features.html">Features</a>
         <a href="privacy.html">Privacy</a>
@@ -1272,14 +1272,13 @@
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-inner">
           <div>
-            <div class="eyebrow">Free Mac tool with no ads</div>
-            <h1 id="hero-title">Uninstall Mac apps without leaving files behind.</h1>
-            <p class="hero-copy">AppTidy finds related preferences, caches, containers, logs, receipts, and support files before anything moves to Trash.</p>
+            <div class="eyebrow">How it works</div>
+            <h1 id="hero-title">See the cleanup flow before you install.</h1>
+            <p class="hero-copy">AppTidy keeps uninstalling readable: choose an app, review related files, move selected items to Trash, and keep a local cleanup trail.</p>
             <div class="hero-actions">
-              <a class="button primary" href="how-it-works.html">See how it works</a>
+              <a class="button primary" href="#walkthrough">View walkthrough</a>
               <a class="button" href="features.html">Explore features</a>
             </div>
-            <p class="hero-note">Free for macOS 13+. Signed and notarized v0.1.0.</p>
           </div>
 
           <div class="scene" aria-hidden="true">
@@ -1290,49 +1289,71 @@
         </div>
       </section>
 
-      <section class="proof" id="walkthrough" aria-labelledby="home-flow-title">
+      <section class="walk" id="walkthrough" aria-labelledby="walk-title">
         <div class="section-heading">
-          <h2 id="home-flow-title">Review-first cleanup, split into clear pages.</h2>
-          <p>Start with the workflow, compare the cleanup surfaces, or read the privacy details without digging through one long page.</p>
+          <h2 id="walk-title">A real Mac cleanup flow, shown step by step.</h2>
+          <p>Follow the same flow users see in the app: choose an app, review the evidence, move selected items to Trash, and finish with a reversible cleanup history.</p>
+        </div>
+
+        <div class="walk-grid">
+          <div class="walk-steps" aria-label="AppTidy workflow steps">
+            <article class="walk-step is-active" data-step="0">
+              <strong>Open AppTidy</strong>
+              <p>Start with a compact Mac utility window. Drop an app or choose from installed apps.</p>
+            </article>
+            <article class="walk-step" data-step="1">
+              <strong>Choose an app</strong>
+              <p>Search installed apps and select the one to inspect.</p>
+            </article>
+            <article class="walk-step" data-step="2">
+              <strong>Scan related files</strong>
+              <p>AppTidy scans app bundles, containers, preferences, caches, logs, receipts, and support folders.</p>
+            </article>
+            <article class="walk-step" data-step="3">
+              <strong>Review before removal</strong>
+              <p>Every candidate shows a checkbox, path, size, category, and Finder reveal action.</p>
+            </article>
+            <article class="walk-step" data-step="4">
+              <strong>Move to Trash</strong>
+              <p>AppTidy never permanently deletes files. macOS approval is requested only when needed.</p>
+            </article>
+            <article class="walk-step" data-step="5">
+              <strong>Done</strong>
+              <p>The final state confirms what moved to Trash, with history available if you need to review it.</p>
+            </article>
+          </div>
+
+          <div class="sticky-stage" aria-hidden="true">
+            <div class="stage-label" id="stageLabel">Drop</div>
+            <div class="walk-window-wrap" id="walkWindow">
+              <div class="window-stack walk-stack" id="walkStack"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <section class="proof" aria-labelledby="proof-title">
+        <div class="section-heading">
+          <h2 id="proof-title">Safer than blind deletion.</h2>
+          <p>AppTidy is built around review, evidence, and Trash-only cleanup.</p>
         </div>
         <div class="cards">
           <article class="card">
             <div class="symbol">1</div>
-            <h3>How it works</h3>
-            <p>Follow the Mac cleanup flow from app selection to review, Trash-only removal, and local history.</p>
-            <div class="hero-actions"><a class="button" href="how-it-works.html">Open workflow</a></div>
+            <h3>Review every file</h3>
+            <p>See paths, sizes, categories, and confidence before anything moves.</p>
           </article>
-          <article class="card" id="features">
+          <article class="card">
             <div class="symbol">2</div>
-            <h3>Features</h3>
-            <p>See the review queue, leftovers tools, inventory, Homebrew awareness, and cleanup history.</p>
-            <div class="hero-actions"><a class="button" href="features.html">Open features</a></div>
+            <h3>Trash only</h3>
+            <p>Cleanup goes to Finder Trash, so files can be restored if needed.</p>
           </article>
           <article class="card">
             <div class="symbol">3</div>
-            <h3>Support Dev</h3>
-            <p>AppTidy is free to use. Support helps keep the app independent, polished, and actively maintained.</p>
-            <div class="hero-actions"><a class="button" href="tips.html">Open support</a></div>
+            <h3>History included</h3>
+            <p>Keep a local cleanup trail with moved items and restore guidance.</p>
           </article>
-        </div>
-      </section>
-
-      <section class="trust" id="privacy" aria-labelledby="privacy-title">
-        <div class="trust-band">
-          <div>
-            <div class="eyebrow">Private by default</div>
-            <h2 id="privacy-title">A cleanup tool should not become another thing to clean up.</h2>
-            <div class="trust-points">
-              <span>Local-only by default</span>
-              <span>No cloud account required</span>
-              <span>No permanent deletion in v1</span>
-              <span>Follows your Mac light or dark appearance</span>
-            </div>
-          </div>
-          <div class="theme-preview">
-            <img src="assets/09-dark-mode.png" alt="AppTidy drop screen in macOS dark mode" loading="lazy">
-            <p>AppTidy uses native macOS appearance, so the same workflow feels at home in Light Mode and Dark Mode.</p>
-          </div>
         </div>
       </section>
 
