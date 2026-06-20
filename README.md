@@ -35,12 +35,12 @@ Configure the Pages Function with an R2 bucket binding:
 APPTIDY_DOWNLOADS
 ```
 
-By default, `/download` reads `AppTidy-latest.dmg` from R2 but sends users a
-versioned filename such as `AppTidy-0.1.1.dmg`. You can override the object key
+By default, `/download` reads the current versioned DMG from R2 and sends users
+a versioned filename such as `AppTidy-0.1.1.dmg`. You can override the object key
 with a production environment variable:
 
 ```text
-APPTIDY_DOWNLOAD_KEY=releases/AppTidy-0.1.1.dmg
+APPTIDY_DOWNLOAD_KEY=AppTidy-0.1.1.dmg
 ```
 
 Optional metadata environment variables keep the browser filename, response
@@ -53,8 +53,8 @@ APPTIDY_DOWNLOAD_SHA256=2d6b9dd8e3dffe274fc113fb90ff67e66b4ebe475ced1ef3284f0cc2
 ```
 
 Keep DMG files out of the website repository. Upload versioned builds to R2 and
-copy or alias the current release to `AppTidy-latest.dmg` when a new release
-ships.
+point `APPTIDY_DOWNLOAD_KEY`, or the default object key in `functions/download.js`,
+at the current release when a new version ships.
 
 ## Cloudflare Deployment
 
@@ -71,7 +71,7 @@ Recommended Cloudflare setup:
 - Functions directory: `functions`.
 - R2 bucket binding: `APPTIDY_DOWNLOADS`.
 - Optional production environment variable:
-  `APPTIDY_DOWNLOAD_KEY=AppTidy-latest.dmg`
+  `APPTIDY_DOWNLOAD_KEY=AppTidy-0.1.1.dmg`
 - Optional release metadata variables:
   `APPTIDY_DOWNLOAD_VERSION`, `APPTIDY_DOWNLOAD_FILENAME`, and
   `APPTIDY_DOWNLOAD_SHA256`
