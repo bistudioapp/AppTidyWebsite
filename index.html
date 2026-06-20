@@ -214,6 +214,28 @@
       font-size: 14px;
     }
 
+    .download-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 12px;
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .download-meta code {
+      color: var(--ink);
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+      font-size: 11px;
+      overflow-wrap: anywhere;
+    }
+
+    .download-meta a {
+      color: var(--blue);
+      font-weight: 760;
+    }
+
     .scene {
       perspective: 1300px;
       min-height: 560px;
@@ -1206,7 +1228,11 @@
               <a class="button primary" href="/download" aria-label="Download AppTidy for macOS"><span aria-hidden="true"></span><span>Download AppTidy for macOS</span></a>
               <a class="button" href="#walkthrough">See how it works</a>
             </div>
-            <p class="hero-note">Direct download for macOS 13+. No cloud account required.</p>
+            <p class="hero-note">Direct download for macOS 13+. Signed and notarized v0.1.0.</p>
+            <p class="download-meta">
+              <span>SHA-256 <code>8197fed802f54eef2d038c0ac2c220a0c23c56fca392fe8bbd371fa7dfb1b729</code></span>
+              <a href="/download/checksum">Checksum</a>
+            </p>
           </div>
 
           <div class="scene" aria-hidden="true">

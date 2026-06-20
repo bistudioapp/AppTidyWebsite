@@ -32,11 +32,21 @@ Configure the Pages Function with an R2 bucket binding:
 APPTIDY_DOWNLOADS
 ```
 
-By default, `/download` serves `AppTidy-latest.dmg`. You can override the object
-key with a production environment variable:
+By default, `/download` reads `AppTidy-latest.dmg` from R2 but sends users a
+versioned filename such as `AppTidy-0.1.0.dmg`. You can override the object key
+with a production environment variable:
 
 ```text
 APPTIDY_DOWNLOAD_KEY=releases/AppTidy-0.1.0.dmg
+```
+
+Optional metadata environment variables keep the browser filename, response
+headers, and `/download/checksum` endpoint aligned with the release in R2:
+
+```text
+APPTIDY_DOWNLOAD_VERSION=0.1.0
+APPTIDY_DOWNLOAD_FILENAME=AppTidy-0.1.0.dmg
+APPTIDY_DOWNLOAD_SHA256=8197fed802f54eef2d038c0ac2c220a0c23c56fca392fe8bbd371fa7dfb1b729
 ```
 
 Keep DMG files out of the website repository. Upload versioned builds to R2 and
@@ -59,6 +69,9 @@ Recommended Cloudflare setup:
 - R2 bucket binding: `APPTIDY_DOWNLOADS`.
 - Optional production environment variable:
   `APPTIDY_DOWNLOAD_KEY=AppTidy-latest.dmg`
+- Optional release metadata variables:
+  `APPTIDY_DOWNLOAD_VERSION`, `APPTIDY_DOWNLOAD_FILENAME`, and
+  `APPTIDY_DOWNLOAD_SHA256`
 
 After the GitHub repo is connected, every push to the default branch can deploy
 the website automatically. The DMG should be uploaded separately to Cloudflare
