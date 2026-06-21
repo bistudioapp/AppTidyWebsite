@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://app-tidy.com/sitemap.xml

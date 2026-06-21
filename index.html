@@ -3,9 +3,114 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AppTidy - Uninstall Mac apps without leaving files behind</title>
-  <meta name="description" content="AppTidy is a focused macOS uninstaller that finds related files, shows why they were found, and moves selected items to Trash.">
-  <link rel="icon" href="assets/app-icon.png">
+  <title>AppTidy - Free Mac App Uninstaller for Leftover Files</title>
+  <meta name="description" content="AppTidy is a free macOS app uninstaller that finds leftover files, explains why they match, and moves selected items to Trash safely.">
+  <link rel="canonical" href="https://app-tidy.com/">
+  <link rel="icon" href="/assets/app-icon.png">
+  <link rel="apple-touch-icon" href="/assets/app-icon.png">
+  <meta property="og:site_name" content="AppTidy">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="AppTidy - Free Mac App Uninstaller for Leftover Files">
+  <meta property="og:description" content="AppTidy is a free macOS app uninstaller that finds leftover files, explains why they match, and moves selected items to Trash safely.">
+  <meta property="og:url" content="https://app-tidy.com/">
+  <meta property="og:image" content="https://app-tidy.com/assets/app-icon.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="AppTidy - Free Mac App Uninstaller for Leftover Files">
+  <meta name="twitter:description" content="AppTidy is a free macOS app uninstaller that finds leftover files, explains why they match, and moves selected items to Trash safely.">
+  <meta name="twitter:image" content="https://app-tidy.com/assets/app-icon.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://app-tidy.com/#organization",
+        "name": "bistudio.app",
+        "url": "https://bistudio.app",
+        "logo": "https://app-tidy.com/assets/app-icon.png"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://app-tidy.com/#website",
+        "name": "AppTidy",
+        "url": "https://app-tidy.com",
+        "publisher": {
+          "@id": "https://app-tidy.com/#organization"
+        }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://app-tidy.com/#apptidy",
+        "name": "AppTidy",
+        "alternateName": "AppTidy Mac App Uninstaller",
+        "operatingSystem": "macOS 13 or later",
+        "applicationCategory": "UtilitiesApplication",
+        "softwareVersion": "0.1.3",
+        "description": "AppTidy is a free macOS app uninstaller that finds leftover files, explains why they match, and moves selected items to Trash safely.",
+        "image": "https://app-tidy.com/assets/app-icon.png",
+        "icon": "https://app-tidy.com/assets/app-icon.png",
+        "url": "https://app-tidy.com",
+        "downloadUrl": "https://app-tidy.com/download",
+        "screenshot": "https://app-tidy.com/assets/04-results.png",
+        "publisher": {
+          "@id": "https://app-tidy.com/#organization"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://app-tidy.com/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How do I completely uninstall an app on Mac?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Choose or drop the app in AppTidy, review the related preferences, caches, containers, logs, receipts, and support files, then move selected items to Trash."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is AppTidy free?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. AppTidy is free to download and use, with no ads in the current release."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does AppTidy permanently delete files?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. AppTidy moves selected items to Trash in the current release, so you can restore them from Finder if needed."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does AppTidy work with Homebrew casks?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. When Homebrew integration is enabled, AppTidy can detect installed casks and offer the matching brew uninstall --cask --zap command for Terminal review."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why do Mac apps leave leftover files?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Mac apps often store preferences, caches, containers, logs, receipts, and support data outside the app bundle, so those files can remain after dragging an app to Trash."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
   <style>
     :root {
       color-scheme: light dark;
@@ -810,7 +915,9 @@
 
     .proof,
     .compare,
+    .guides,
     .trust,
+    .faq,
     .final-cta {
       padding: 86px clamp(20px, 5vw, 58px);
       border-bottom: 1px solid var(--line);
@@ -854,6 +961,44 @@
       margin: 0;
       color: var(--muted);
       line-height: 1.5;
+    }
+
+    .guide-card {
+      display: grid;
+      gap: 12px;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .guide-card span {
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .faq-list {
+      width: min(100%, 900px);
+      margin: 0 auto;
+      display: grid;
+      gap: 14px;
+    }
+
+    .faq-item {
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: var(--panel);
+      backdrop-filter: blur(20px);
+    }
+
+    .faq-item h3 {
+      margin: 0 0 8px;
+      font-size: 20px;
+    }
+
+    .faq-item p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.55;
     }
 
     .compare-grid {
@@ -1317,25 +1462,79 @@
         </div>
       </section>
 
+      <section class="guides" aria-labelledby="guides-title">
+        <div class="section-heading">
+          <h2 id="guides-title">Mac app uninstall guides.</h2>
+          <p>Short explainers for the searches people use when they need a careful app uninstaller, leftover cleaner, or Homebrew cask cleanup path.</p>
+        </div>
+        <div class="cards">
+          <a class="card guide-card" href="mac-app-uninstaller.html">
+            <div class="symbol">U</div>
+            <h3>Mac app uninstaller</h3>
+            <span>How AppTidy finds related files and keeps cleanup review-first.</span>
+          </a>
+          <a class="card guide-card" href="mac-cleaner-for-leftover-files.html">
+            <div class="symbol">L</div>
+            <h3>Leftover file cleaner</h3>
+            <span>Preferences, caches, containers, logs, receipts, and support folders explained.</span>
+          </a>
+          <a class="card guide-card" href="uninstall-mac-apps-safely.html">
+            <div class="symbol">S</div>
+            <h3>Safe uninstalling</h3>
+            <span>Use Trash-first cleanup, checksum verification, and restore-friendly removal.</span>
+          </a>
+        </div>
+      </section>
+
       <section class="trust" id="privacy" aria-labelledby="privacy-title">
         <div class="trust-band">
           <div>
             <div class="eyebrow">Private by default</div>
             <h2 id="privacy-title">A cleanup tool should not become another thing to clean up.</h2>
             <div class="trust-points">
-              <span>Local-only by default</span>
+              <span>Free with no ads</span>
+              <span>Signed and notarized</span>
+              <span>Local-first cleanup</span>
+              <span>Moves files to Trash</span>
               <span>No cloud account required</span>
-              <span>No permanent deletion in v1</span>
-              <span>Follows your Mac light or dark appearance</span>
+              <span>macOS 13+</span>
             </div>
           </div>
           <div class="theme-preview">
             <img src="assets/09-dark-mode.png" alt="AppTidy drop screen in macOS dark mode" loading="lazy">
-            <p>AppTidy uses native macOS appearance, so the same workflow feels at home in Light Mode and Dark Mode.</p>
+            <p>AppTidy uses native macOS appearance, so the same workflow feels at home in Light Mode and Dark Mode. Advanced users can <a href="/download/checksum">verify the download checksum</a>.</p>
           </div>
         </div>
       </section>
 
+      <section class="faq" aria-labelledby="faq-title">
+        <div class="section-heading">
+          <h2 id="faq-title">Mac app uninstaller FAQ.</h2>
+          <p>Answers to the common cleanup questions AppTidy is designed around.</p>
+        </div>
+        <div class="faq-list">
+          <article class="faq-item">
+            <h3>How do I completely uninstall an app on Mac?</h3>
+            <p>Choose or drop the app in AppTidy, review the related preferences, caches, containers, logs, receipts, and support files, then move selected items to Trash.</p>
+          </article>
+          <article class="faq-item">
+            <h3>Is AppTidy free?</h3>
+            <p>Yes. AppTidy is free to download and use, with no ads in the current release.</p>
+          </article>
+          <article class="faq-item">
+            <h3>Does AppTidy permanently delete files?</h3>
+            <p>No. AppTidy moves selected items to Trash in the current release, so you can restore them from Finder if needed.</p>
+          </article>
+          <article class="faq-item">
+            <h3>Does AppTidy work with Homebrew casks?</h3>
+            <p>Yes. When Homebrew integration is enabled, AppTidy can detect installed casks and offer the matching <code>brew uninstall --cask --zap</code> command for Terminal review.</p>
+          </article>
+          <article class="faq-item">
+            <h3>Why do Mac apps leave leftover files?</h3>
+            <p>Mac apps often store preferences, caches, containers, logs, receipts, and support data outside the app bundle, so those files can remain after dragging an app to Trash.</p>
+          </article>
+        </div>
+      </section>
 
     </main>
 

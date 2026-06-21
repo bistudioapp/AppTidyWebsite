@@ -3,9 +3,21 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AppTidy Features</title>
-  <meta name="description" content="Explore AppTidy features for review-first Mac app uninstalling, leftovers, inventory, Homebrew awareness, and local history.">
-  <link rel="icon" href="assets/app-icon.png">
+  <title>AppTidy Features - Leftovers, Homebrew, History, and Smart Delete</title>
+  <meta name="description" content="Explore AppTidy features for Mac app uninstalling, leftover file review, Homebrew cask awareness, Smart Delete, inventory, and local history.">
+  <link rel="canonical" href="https://app-tidy.com/features.html">
+  <link rel="icon" href="/assets/app-icon.png">
+  <link rel="apple-touch-icon" href="/assets/app-icon.png">
+  <meta property="og:site_name" content="AppTidy">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="AppTidy Features - Leftovers, Homebrew, History, and Smart Delete">
+  <meta property="og:description" content="Explore AppTidy features for Mac app uninstalling, leftover file review, Homebrew cask awareness, Smart Delete, inventory, and local history.">
+  <meta property="og:url" content="https://app-tidy.com/features.html">
+  <meta property="og:image" content="https://app-tidy.com/assets/app-icon.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="AppTidy Features - Leftovers, Homebrew, History, and Smart Delete">
+  <meta name="twitter:description" content="Explore AppTidy features for Mac app uninstalling, leftover file review, Homebrew cask awareness, Smart Delete, inventory, and local history.">
+  <meta name="twitter:image" content="https://app-tidy.com/assets/app-icon.png">
   <style>
     :root {
       color-scheme: light dark;
@@ -856,6 +868,18 @@
       line-height: 1.5;
     }
 
+    .guide-card {
+      display: grid;
+      gap: 12px;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .guide-card span {
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
     .compare-grid {
       width: min(100%, var(--max));
       margin: 0 auto;
@@ -1362,7 +1386,7 @@
             <div class="trust-points">
               <span>Local-only by default</span>
               <span>No cloud account required</span>
-              <span>No permanent deletion in v1</span>
+              <span>Moves files to Trash</span>
               <span>Follows your Mac light or dark appearance</span>
             </div>
           </div>
@@ -1373,6 +1397,29 @@
         </div>
       </section>
 
+      <section class="proof" aria-labelledby="feature-guides-title">
+        <div class="section-heading">
+          <h2 id="feature-guides-title">Learn the cleanup paths.</h2>
+          <p>Go deeper on the AppTidy workflows people often search for before choosing a Mac app uninstaller.</p>
+        </div>
+        <div class="cards">
+          <a class="card guide-card" href="mac-app-uninstaller.html">
+            <div class="symbol">U</div>
+            <h3>Mac app uninstaller</h3>
+            <span>Review-first app removal with related file explanations.</span>
+          </a>
+          <a class="card guide-card" href="homebrew-cask-uninstaller.html">
+            <div class="symbol">B</div>
+            <h3>Homebrew casks</h3>
+            <span>How AppTidy offers brew zap command guidance.</span>
+          </a>
+          <a class="card guide-card" href="appcleaner-alternative.html">
+            <div class="symbol">A</div>
+            <h3>AppCleaner alternative</h3>
+            <span>A careful comparison for review-first cleanup.</span>
+          </a>
+        </div>
+      </section>
 
     </main>
 
